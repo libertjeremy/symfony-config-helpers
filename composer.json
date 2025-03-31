@@ -1,0 +1,20 @@
+{
+    "name": "libertjeremy/symfony-config-helpers",
+    "type": "library",
+    "authors": [
+        {
+            "name": "libertjeremy",
+            "email": "contact@libertjeremy.fr"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "symfony/config": "^6.4 || ^7.2",
+        "symfony/dependency-injection": "^6.4 || ^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "LibertJeremy\\Symfony\\ConfigHelpers\\": "src/"
+        }
+    }
+}
