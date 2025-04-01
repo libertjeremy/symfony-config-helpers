@@ -25,4 +25,13 @@ trait TwigConfigHelperTrait
             ],
         ]);
     }
+
+    protected function addTwigGlobal(ContainerBuilder $container, string $varName, mixed $value): void
+    {
+        $container->prependExtensionConfig('twig', [
+            'globals' => [
+                $varName => $value,
+            ],
+        ]);
+    }
 }
