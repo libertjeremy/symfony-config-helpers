@@ -19,6 +19,17 @@ trait DoctrineConfigHelperTrait
         ]);
     }
 
+    protected function addDoctrineFilter(ContainerBuilder $container, string $name, string $class): void
+    {
+        $container->prependExtensionConfig('doctrine', [
+            'orm' => [
+                'filters' => [
+                    $name => $class,
+                ],
+            ],
+        ]);
+    }
+
     protected function addDoctrineEntityType(ContainerBuilder $container, string $name, string $class): void
     {
         $container->prependExtensionConfig('doctrine', [
