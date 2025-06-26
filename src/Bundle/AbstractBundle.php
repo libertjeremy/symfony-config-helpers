@@ -19,4 +19,26 @@ abstract class AbstractBundle extends BaseAbstractBundle
             $this->initConfigurationParameters($builder, $config);
         }
     }
+
+    /**
+     * @return array<string|array>
+     */
+    protected function retrieveConfiguration(ContainerBuilder $builder): array
+    {
+        if (!($containerExtension = $this->getContainerExtension())) {
+            return [];
+        }
+
+        if (empty(($configs = $builder->getExtensionConfig($containerExtension->getAlias())))) {
+            return [];
+        }
+
+        $config = [];
+
+        foreach ($configs as $configArray) {
+            $config = array_merge($config, $configArray);
+        }
+
+        return $config;
+    }
 }
